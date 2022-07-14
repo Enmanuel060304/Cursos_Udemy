@@ -24,12 +24,17 @@ console.log( resultado );
 })(5,5);
 
 /* 
-*para saber cuantos argumentos recibe una funcion se utiliza la propiedad argument
+* para saber cuantos argumentos recibe una funcion se utiliza la propiedad argument
+* para saber cuales son los argumentos utilizamos la propiedad arguments pero ponemos la posicion del
+* argumento que deseamos conocer ejemplos arguments[0]
 *ejemplo
 */
 
 function segundaFuncion(a, b) 
 {
+    console.log( arguments[0] );
+    console.log( arguments[1] );
+
     return arguments.length;   
 }
 console.log(segundaFuncion(4,5));
@@ -52,3 +57,44 @@ const sumarFuncionTipoFlecha = (a, b) => a + b;
 */
 resultado = sumarFuncionTipoFlecha(4, 5);
 console.log(resultado);
+
+
+/* 
+* funcions por pase de referencia
+*
+* funciones por paso de referencia son aquellas las cuales solo tienen relacion
+* con el valor de la variable mas no con la variable misma
+* ejemplo
+*/
+
+let x = 10;
+
+function cambiaValor(a) 
+{
+    a = 20;    
+}
+console.log(x);
+
+
+/* 
+* paso por refencia
+* el paso por refencia en funciones pasa con objetos ya que por medio de las
+* variables de instacia podemos referenciar un objeto
+*/
+
+const persona = 
+{
+    nombre : "juan", 
+    apellido : "perez"
+}
+
+console.log(persona);
+
+function cambiaValoresObjeto(p1) 
+{
+    p1.nombre = "carlos";
+    p1.apellido = "urbina";    
+}
+
+cambiaValoresObjeto(persona);
+console.log(persona);
